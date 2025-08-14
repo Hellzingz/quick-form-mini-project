@@ -71,7 +71,7 @@ function App() {
           setReview = {setReview}/>
           <div className="flex justify-center gap-2 mt-5">
             <Button text="Submit" type="submit" />
-            <Button text="Reset" type="button" onClick={handleReset} />
+            <Button text="Reset" type="reset" onClick={handleReset} />
           </div>
         </form>
       </div>
