@@ -1,47 +1,29 @@
-import React, { useState } from 'react'
-import validation from '../utils/vadidation'
 
-function UserForm() {
+import AlertText from "./Tag/AlertText"
+function UserForm({name,email,setName,setEmail,submitted,error}) {
 
-    const [name,setName] = useState("")
-    const [email,setEmail] = useState("")
-    const [error,setError] =useState({})
-
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        const errors = validation({ name, email });
-        setError(errors);
-        if (Object.keys(errors).length !== 0) return;
-    
-        const userData = { Name: name, Email: email };
-        alert(JSON.stringify(userData));
-        setName("");
-        setEmail("");
-    }
 
   return (
     <>
-        <section className='container mx-auto p-5 flex justify-center'>
-            <form onSubmit={handleSubmit} className='flex flex-col gap-5 w-[300px] px-4 py-5 rounded-md border-1'>
+        <section className='flex flex-col gap-2'>
                 <h1 className='text-2xl text-center'>User Information</h1>
-                <label htmlFor="">Name :
-                    <input 
+                <label htmlFor="name">Name :
+                    <input
+                    className="px-2 py-1 rounded-md" 
                     type="text"
                     value={name}
                     onChange={e=>setName(e.target.value)}
                      />
                 </label>
-                {error.name && <>{error.name}</>}
-                <label htmlFor="">Email :
+                {error.name && !submitted && <AlertText>{error.name}</AlertText>}
+                <label htmlFor="email">Email :
                     <input
+                    className="px-2 py-1 rounded-md" 
                     value={email}
                     onChange={e=>setEmail(e.target.value)} 
                     type="text" />
                 </label>
-                {error.email && <>{error.email}</>}
-                <button>Submit</button>
-            </form>
+                {error.email && !submitted && <AlertText>{error.email}</AlertText>}
         </section>
     </>
   )
