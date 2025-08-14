@@ -13,7 +13,7 @@ function MovieList({selectedTitle,setSelectedTitle,error,submitted}) {
     {movies.map((movie) => (
         <MovieItem
           key={movie.title}
-          {...movie}
+          title={movie.title}
           selected={selectedTitle === movie.title}
           onSelect={() => setSelectedTitle(movie.title)}
         />

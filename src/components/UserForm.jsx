@@ -6,7 +6,7 @@ function UserForm({name,email,setName,setEmail,submitted,error}) {
   return (
     <>
         <section className='flex flex-col gap-2'>
-                <h1 className='text-2xl text-center'>User Information</h1>
+                <h1 className='text-2xl text-center font-bold'>User Information</h1>
                 <label htmlFor="name">Name :
                     <input
                     className="px-2 py-1 rounded-sm border-2 ml-4" 
