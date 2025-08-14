@@ -10,8 +10,8 @@ function DisplayInfo({ userData,setDisplay }) {
         <p><span className='font-bold text-gray-700'>Name : </span>{userData.name}</p>
         <p><span className='font-bold text-gray-700'>Email : </span>{userData.email}</p>
         <p><span className='font-bold text-gray-700'>Favorite : </span>{userData.favorite}</p>
-        <p><span className='font-bold text-gray-700'>Review : </span>{userData.review}</p>
-        <Button className text="Home" onClick={e=>setDisplay(false)}/>
+        {userData.review && <p><span className='font-bold text-gray-700'>Review : </span>{userData.review}</p>}
+        <Button text="Back" onClick={e=>setDisplay(false)}className='mt-5'/>
       </div>
     );
   }
